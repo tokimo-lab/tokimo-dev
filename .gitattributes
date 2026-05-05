@@ -1,0 +1,8 @@
+# Exclude generated files from GitHub language stats
+index.js linguist-generated
+index.d.ts linguist-generated
+Cargo.lock linguist-generated
+*.node binary
+
+# Mark Rust as the primary language
+*.rs linguist-detectable
