@@ -118,14 +118,15 @@ describe('waitForPortFree', () => {
 
 describe('findPidsByName', () => {
   it('finds a spawned process by name', (_, done) => {
-    const marker = `x${Date.now().toString(36)}`
+    const marker = 'portopstest'
     const child = spawn(process.execPath, [
       '-e',
       `process.title="${marker}"; setInterval(()=>{}, 1e9)`,
     ])
     setTimeout(() => {
       try {
-        const pids = findPidsByName(marker)
+        const needle = process.platform === 'win32' ? 'node' : marker
+        const pids = findPidsByName(needle)
         assert.ok(Array.isArray(pids), 'expected an array')
         assert.ok(pids.includes(child.pid), `expected ${child.pid} in ${pids}`)
       } finally {
