@@ -25,7 +25,8 @@
     "prepublishOnly": "napi prepublish -t npm",
     "test": "node --test test.mjs",
     "universal": "napi universal",
-    "version": "napi version"
+    "version": "napi version",
+    "postinstall": "node scripts/install.mjs"
   },
   "devDependencies": {
     "@napi-rs/cli": "^3.6.2"
@@ -49,6 +50,11 @@
   },
   "files": [
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "src",
+    "Cargo.toml",
+    "Cargo.lock",
+    "build.rs",
+    "scripts/install.mjs"
   ]
 }
