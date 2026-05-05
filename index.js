@@ -577,5 +577,10 @@ if (!nativeBinding) {
 
 module.exports = nativeBinding
 module.exports.findPidByPort = nativeBinding.findPidByPort
+module.exports.findPidByPortAll = nativeBinding.findPidByPortAll
+module.exports.findPidsByName = nativeBinding.findPidsByName
+module.exports.isPortAvailable = nativeBinding.isPortAvailable
 module.exports.kill = nativeBinding.kill
 module.exports.killByPort = nativeBinding.killByPort
+module.exports.killTree = nativeBinding.killTree
+module.exports.waitForPortFree = nativeBinding.waitForPortFree

@@ -8,6 +8,21 @@
 export declare function findPidByPort(port: number): number | null
 
 /**
+ * Return ALL PIDs listening on the given port (TCP LISTEN + UDP, IPv4 + IPv6).
+ * Returns an empty array if no process is found.
+ */
+export declare function findPidByPortAll(port: number): Array<number>
+
+/**
+ * Find all PIDs whose process name contains `name` (case-insensitive).
+ * Returns an empty array if no match is found.
+ */
+export declare function findPidsByName(name: string): Array<number>
+
+/** Returns true if no process is listening on the given port. */
+export declare function isPortAvailable(port: number): boolean
+
+/**
  * Kill a process by PID.
  * - force=true:  SIGKILL (Unix) / TerminateProcess (Windows) — immediate
  * - force=false: SIGTERM (Unix) / taskkill /PID (Windows) — graceful
@@ -20,3 +35,15 @@ export declare function kill(pid: number, force?: boolean): boolean
  * Returns the killed PID, or null if no process was found.
  */
 export declare function killByPort(port: number, force?: boolean): number | null
+
+/**
+ * Kill a process and all its children recursively (process tree).
+ * Returns true if the root process was killed successfully.
+ */
+export declare function killTree(pid: number, force?: boolean): boolean
+
+/**
+ * Poll until the given port has no LISTEN socket, or until `timeout_ms` elapses.
+ * Returns true if the port became free, false on timeout.
+ */
+export declare function waitForPortFree(port: number, timeoutMs: number): boolean
