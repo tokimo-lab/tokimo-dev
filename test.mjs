@@ -36,9 +36,9 @@ describe('kill', () => {
     assert.equal(kill(9999999, false), false)
   })
 
-  it('returns false for PID 0 (kernel idle)', () => {
-    // PID 0 is the kernel idle process; sending a signal should fail or return false
-    const result = kill(0, false)
+  it('returns false for PID 1 without sufficient privileges', () => {
+    // PID 1 is init/systemd; non-root cannot kill it
+    const result = kill(1, false)
     assert.equal(result, false)
   })
 })
