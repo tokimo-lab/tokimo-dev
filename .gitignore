@@ -1,0 +1,9 @@
+node_modules/
+target/
+*.node
+*.d.ts
+!index.d.ts
+!npm/**/*.d.ts
+/artifacts/
+.DS_Store
+Thumbs.db

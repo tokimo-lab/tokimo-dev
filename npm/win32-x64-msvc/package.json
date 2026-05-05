@@ -1,0 +1,14 @@
+{
+  "name": "@tokimo-lab/port-ops-win32-x64-msvc",
+  "version": "0.1.0",
+  "os": ["win32"],
+  "cpu": ["x64"],
+  "main": "port-ops.win32-x64-msvc.node",
+  "files": ["port-ops.win32-x64-msvc.node"],
+  "description": "Native bindings for @tokimo-lab/port-ops (win32-x64-msvc)",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}

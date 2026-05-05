@@ -1,0 +1,55 @@
+{
+  "name": "@tokimo-lab/port-ops",
+  "version": "0.1.0",
+  "description": "Cross-platform port operations: find PID by port, kill process (normal/force)",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "napi": {
+    "binaryName": "port-ops",
+    "targets": [
+      "x86_64-pc-windows-msvc",
+      "x86_64-apple-darwin",
+      "aarch64-apple-darwin",
+      "x86_64-unknown-linux-gnu",
+      "x86_64-unknown-linux-musl",
+      "aarch64-unknown-linux-gnu"
+    ]
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 16"
+  },
+  "scripts": {
+    "artifacts": "napi artifacts",
+    "build": "napi build --platform --release",
+    "build:debug": "napi build --platform",
+    "prepublishOnly": "napi prepublish -t npm",
+    "test": "node --test test.mjs",
+    "universal": "napi universal",
+    "version": "napi version"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^3.6.2"
+  },
+  "keywords": [
+    "port",
+    "process",
+    "kill",
+    "pid",
+    "network",
+    "cross-platform",
+    "napi"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tokimo-lab/tokimo-dev.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ]
+}

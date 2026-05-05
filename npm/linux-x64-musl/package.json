@@ -1,0 +1,14 @@
+{
+  "name": "@tokimo-lab/port-ops-linux-x64-musl",
+  "version": "0.1.0",
+  "os": ["linux"],
+  "cpu": ["x64"],
+  "main": "port-ops.linux-x64-musl.node",
+  "files": ["port-ops.linux-x64-musl.node"],
+  "description": "Native bindings for @tokimo-lab/port-ops (linux-x64-musl)",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}

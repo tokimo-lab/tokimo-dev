@@ -1,0 +1,14 @@
+{
+  "name": "@tokimo-lab/port-ops-darwin-x64",
+  "version": "0.1.0",
+  "os": ["darwin"],
+  "cpu": ["x64"],
+  "main": "port-ops.darwin-x64.node",
+  "files": ["port-ops.darwin-x64.node"],
+  "description": "Native bindings for @tokimo-lab/port-ops (darwin-x64)",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}

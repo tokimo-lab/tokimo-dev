@@ -1,0 +1,8 @@
+target/
+src/
+.github/
+test.mjs
+Cargo.toml
+Cargo.lock
+build.rs
+rustfmt.toml
