@@ -42,7 +42,7 @@ try {
       renameSync(alt, binaryPath)
     } else {
       // Search for any matching file
-      const found = readdirSync(releaseDir).find(f => f.startsWith('tokimo_dev'))
+      const found = readdirSync(releaseDir).find(f => f.includes('tokimo_dev'))
       if (found) renameSync(join(releaseDir, found), binaryPath)
       else throw new Error(`Built binary not found in ${releaseDir}`)
     }

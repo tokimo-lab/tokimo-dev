@@ -117,10 +117,22 @@ describe('waitForPortFree', () => {
 // ── findPidsByName ────────────────────────────────────────────────────
 
 describe('findPidsByName', () => {
-  it('finds the current node process', () => {
-    const pids = findPidsByName('node')
-    assert.ok(Array.isArray(pids), 'expected an array')
-    assert.ok(pids.includes(process.pid), `expected ${process.pid} in ${pids}`)
+  it('finds a spawned process by name', (_, done) => {
+    const marker = `x${Date.now().toString(36)}`
+    const child = spawn(process.execPath, [
+      '-e',
+      `process.title="${marker}"; setInterval(()=>{}, 1e9)`,
+    ])
+    setTimeout(() => {
+      try {
+        const pids = findPidsByName(marker)
+        assert.ok(Array.isArray(pids), 'expected an array')
+        assert.ok(pids.includes(child.pid), `expected ${child.pid} in ${pids}`)
+      } finally {
+        child.kill()
+        done()
+      }
+    }, 300)
   })
 
   it('returns empty for a non-existent process name', () => {
