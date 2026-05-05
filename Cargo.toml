@@ -29,3 +29,6 @@ napi-build = "2.3.1"
 [profile.release]
 lto = true
 strip = "symbols"
+
+# Exclude from parent workspace when installed as a dependency
+[workspace]
